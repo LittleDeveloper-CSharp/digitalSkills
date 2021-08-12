@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище digitalSkillsModelContainer" CdmEntityContainer="digitalSkillsEntities">
+    <EntitySetMapping Name="author">
+      <EntityTypeMapping TypeName="digitalSkillsModel.author">
+        <MappingFragment StoreEntitySet="author">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="deat_hdate" ColumnName="deat_hdate" />
+          <ScalarProperty Name="wikipedia" ColumnName="wikipedia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="book">
+      <EntityTypeMapping TypeName="digitalSkillsModel.book">
+        <MappingFragment StoreEntitySet="book">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="subtitle" ColumnName="subtitle" />
+          <ScalarProperty Name="first_publish_date" ColumnName="first_publish_date" />
+          <ScalarProperty Name="descriprion" ColumnName="descriprion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="book_customer">
+      <EntityTypeMapping TypeName="digitalSkillsModel.book_customer">
+        <MappingFragment StoreEntitySet="book_customer">
+          <ScalarProperty Name="id_book" ColumnName="id_book" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="date_of_issue" ColumnName="date_of_issue" />
+          <ScalarProperty Name="return_date" ColumnName="return_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer">
+      <EntityTypeMapping TypeName="digitalSkillsModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="digitalSkillsModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="book_author" TypeName="digitalSkillsModel.book_author" StoreEntitySet="book_author">
+      <EndProperty Name="author">
+        <ScalarProperty Name="id" ColumnName="id_author" />
+      </EndProperty>
+      <EndProperty Name="book">
+        <ScalarProperty Name="id" ColumnName="id_book" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище digitalSkillsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="author">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="bio" Type="nvarchar" MaxLength="1000" />
+    <Property Name="birth_date" Type="date" />
+    <Property Name="deat_hdate" Type="date" />
+    <Property Name="wikipedia" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="subtitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="first_publish_date" Type="nvarchar" MaxLength="20" />
+    <Property Name="descriprion" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="book_author">
+    <Key>
+      <PropertyRef Name="id_book" />
+      <PropertyRef Name="id_author" />
+    </Key>
+    <Property Name="id_book" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="id_author" Type="varchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="book_customer">
+    <Key>
+      <PropertyRef Name="id_book" />
+      <PropertyRef Name="id_customer" />
+    </Key>
+    <Property Name="id_book" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="id_customer" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="date_of_issue" Type="date" Nullable="false" />
+    <Property Name="return_date" Type="date" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="zip" Type="int" Nullable="false" />
+    <Property Name="city" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="login" />
+    </Key>
+    <Property Name="login" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="id_customer" Type="nchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_book_author_author">
+    <End Role="author" Type="Self.author" Multiplicity="1" />
+    <End Role="book_author" Type="Self.book_author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="author">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="book_author">
+        <PropertyRef Name="id_author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_author_book">
+    <End Role="book" Type="Self.book" Multiplicity="1" />
+    <End Role="book_author" Type="Self.book_author" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="book_author">
+        <PropertyRef Name="id_book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_customer_book">
+    <End Role="book" Type="Self.book" Multiplicity="1" />
+    <End Role="book_customer" Type="Self.book_customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="book">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="book_customer">
+        <PropertyRef Name="id_book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_customer_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="book_customer" Type="Self.book_customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="book_customer">
+        <PropertyRef Name="id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_customer">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище digitalSkillsModelContainer">
+    <EntitySet Name="author" EntityType="Self.author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book" EntityType="Self.book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book_author" EntityType="Self.book_author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="book_customer" EntityType="Self.book_customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_book_author_author" Association="Self.FK_book_author_author">
+      <End Role="author" EntitySet="author" />
+      <End Role="book_author" EntitySet="book_author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_author_book" Association="Self.FK_book_author_book">
+      <End Role="book" EntitySet="book" />
+      <End Role="book_author" EntitySet="book_author" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_customer_book" Association="Self.FK_book_customer_book">
+      <End Role="book" EntitySet="book" />
+      <End Role="book_customer" EntitySet="book_customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_customer_customer" Association="Self.FK_book_customer_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="book_customer" EntitySet="book_customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_customer" Association="Self.FK_user_customer">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

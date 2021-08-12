@@ -1,0 +1,52 @@
+﻿<Window x:Class="DigitalSkills.view.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:varchar_128_"
+        mc:Ignorable="d"
+        Title="Login" Height="250" Width="400">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="MinWidth" Value="200"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MinWidth" Value="200"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10 2"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Resources/logo.png"/>
+        <TextBlock Text="Login" Grid.Column="1" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Right">
+            <TextBlock Text="Login"/>
+            <TextBlock Text="Password"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBox x:Name="tbLogin"/>
+            <PasswordBox x:Name="pbPassword"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="Login" Click="btAuthorization_Click"/>
+            <Button Content="Cancel" Click="CloseWindow_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
