@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:varchar_128_.view"
         mc:Ignorable="d"
-        Title="CirculationWindow" Height="450" Width="800">
+        Title="Circulation" Height="450" Width="800">
     <Grid Margin="0 0 0 20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -24,7 +24,7 @@
                     <TextBlock Text="Customer ID"/>
                     <TextBox x:Name="idCustoner"/>
                 </StackPanel>
-                <Button Content="Circulation" HorizontalAlignment="Right" Padding="30 0" Margin="0 10 0 0" Click="btInfoCustomer"/>
+                <Button Content="Circulation" HorizontalAlignment="Right" Padding="30 0" Margin="0 10 0 0" Click="btInfoCustomer" Foreground="White" Background="DarkGreen"/>
             </StackPanel>
             <StackPanel x:Name="spInfo" Grid.Row="2">
                 <TextBlock Text="{Binding name}"/>
@@ -32,7 +32,7 @@
                 <TextBlock Text="{Binding address}"/>
                 <TextBlock x:Name="tbCity"/>
             </StackPanel>
-            <Button Grid.Row="3" Content="Edit" x:Name="btEdit" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Right" Padding="20 5" Click="btEditInfo"/>
+            <Button Grid.Row="3" Foreground="White" Background="DarkGreen" Content="Edit" x:Name="btEdit" VerticalAlignment="Top" IsEnabled="False" HorizontalAlignment="Right" Padding="20 5" Click="btEditInfo"/>
         </Grid>
         <UniformGrid Rows="2" Grid.Column="1">
             <Grid>

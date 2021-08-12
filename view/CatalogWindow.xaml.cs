@@ -55,6 +55,7 @@ namespace varchar_128_.view
             var check = book.author.FirstOrDefault() != null && book.author.FirstOrDefault().bio != null;
             btOpenBio.Foreground = check ? Brushes.Blue : Brushes.Black;
             btOpenBio.IsEnabled = check;
+            description.Visibility = Visibility.Visible;
         }
 
         private void MenuItemAuth_Click(object sender, RoutedEventArgs e)

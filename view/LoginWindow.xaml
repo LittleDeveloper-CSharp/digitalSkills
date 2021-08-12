@@ -31,7 +31,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Image Source="/Resources/logo.png"/>
@@ -45,8 +45,8 @@
             <PasswordBox x:Name="pbPassword"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Content="Login" Click="btAuthorization_Click"/>
-            <Button Content="Cancel" Click="CloseWindow_Click"/>
+            <Button Content="Login" Click="btAuthorization_Click" Background="DarkGreen" Foreground="White" Padding="10 2 10 2"/>
+            <Button Content="Cancel" Click="CloseWindow_Click" Background="#FF718036" Foreground="White" Padding="10 2 10 2"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:varchar_128_.view"
         mc:Ignorable="d"
-        Title="AuthorBioWindow" Height="380" Width="500">
-    <Grid Margin="20 0">
+        Title="Author bio" Height="380" Width="500">
+    <Grid Margin="20 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
@@ -14,14 +14,14 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <ComboBox x:Name="listAuthor" DisplayMemberPath="name" SelectionChanged="listAuthor_SelectionChanged"/>
-            <TextBlock HorizontalAlignment="Left" x:Name="tbDate"/>
+            <ComboBox FontFamily="Tahoma" x:Name="listAuthor" DisplayMemberPath="name" SelectionChanged="listAuthor_SelectionChanged"/>
+            <TextBlock FontFamily="Tahoma" HorizontalAlignment="Left" x:Name="tbDate"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Margin="0 30" x:Name="spBio">
-            <TextBlock Text="Bin"/>
-            <TextBlock x:Name="tbBio"/>
+            <TextBlock FontFamily="Tahoma" Text="Bin"/>
+            <TextBlock FontFamily="Tahoma" x:Name="tbBio"/>
         </StackPanel>
-        <TextBlock Text="Link more on Wikipedia" x:Name="linkWiki" Grid.Row="2" HorizontalAlignment="Left" MouseDown="TextBlock_MouseDown"/>
-        <Button Grid.Row="3" Content="Close" Click="Button_Click"/>
+        <TextBlock FontFamily="Tahoma" Text="Link more on Wikipedia" x:Name="linkWiki" Grid.Row="2" HorizontalAlignment="Left" MouseDown="TextBlock_MouseDown"/>
+        <Button  FontFamily="Tahoma" Foreground="White" Grid.Row="3" Content="Close" Click="Button_Click" Background="#FF50673B"/>
     </Grid>
 </Window>

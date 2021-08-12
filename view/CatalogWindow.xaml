@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:varchar_128_.view"
         mc:Ignorable="d"
-        Title="CatalogWindow" Height="450" Width="800">
+        Title="Catalog" Height="450" Width="800">
     <Window.Resources>
         
         <Style TargetType="TextBlock">
@@ -44,7 +44,7 @@
         </Menu>
         <StackPanel Grid.Row="1">
             <Image Source="/Resources/logo.png"/>
-            <Grid>
+            <Grid Margin="10 40 10 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="2*"/>
@@ -61,7 +61,7 @@
                 <TextBox x:Name="tbTitle" Grid.Row="0" Grid.Column="1"/>
                 <TextBox x:Name="tbAuthor" Grid.Row="1" Grid.Column="1"/>
                 <TextBox x:Name="tbSubject" Grid.Row="2" Grid.Column="1"/>
-                <Button Grid.Row="3" Content="Search" Grid.Column="1" Height="20" Click="Search_Click" />
+                <Button Foreground="White" Background="DarkGreen" Grid.Row="3" Content="Search" Grid.Column="1" Height="20" Click="Search_Click" />
             </Grid>
         </StackPanel>
         <UniformGrid Rows="2" Grid.Row="1" Grid.Column="1">
@@ -79,9 +79,9 @@
                 <UniformGrid Columns="2" Grid.Row="1">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Page" Margin="5 0 10 0"/>
-                        <Button Content="&lt;" Click="MinOneSkip" VerticalAlignment="Center"/>
+                        <Button Content="&lt;" Click="MinOneSkip" VerticalAlignment="Center" Background="DarkGreen" Foreground="White"/>
                         <TextBox x:Name="tbCountSkip" Text="1" TextChanged="TextChangeSkip" Margin="5 0"/>
-                        <Button Content=">" Click="PlusOneSkip" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                        <Button Content=">" Click="PlusOneSkip" VerticalAlignment="Center" Margin="0 0 10 0" Background="DarkGreen" Foreground="White"/>
                         <TextBlock x:Name="tbMax" Text="of 4"/>
                     </StackPanel>
                     <TextBlock x:Name="btCountBook" Text="153 Books found" HorizontalAlignment="Right" VerticalAlignment="Center"/>
@@ -101,7 +101,7 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0">
-                        <TextBlock Text="{Binding Book.title}"/>
+                        <TextBlock Text="{Binding Book.title}" FontSize="20" FontWeight="Bold"/>
                         <TextBlock Text="{Binding Book.subtitle}"/>
                     </StackPanel>
                     <StackPanel Grid.Row="1">
@@ -110,7 +110,7 @@
 
                     </StackPanel>
                     <StackPanel Grid.Row="2">
-                        <TextBlock Text="Desctiprion"/>
+                        <TextBlock x:Name="description" Visibility="Hidden" Text="Desctiprion"/>
                         <TextBlock Text="{Binding Book.descriprion}"/>
                     </StackPanel>
                 </Grid>
@@ -118,8 +118,8 @@
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                     <Image Source="/Resources/poster.png" Height="136"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Content="&lt;" IsEnabled="False"/>
-                        <Button Content=">" IsEnabled="False"/>
+                        <Button Content="&lt;" IsEnabled="False" Background="LightGreen"/>
+                        <Button Content=">" IsEnabled="False" Background="LightGreen"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

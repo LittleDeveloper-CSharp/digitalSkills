@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:varchar_128_.view"
         mc:Ignorable="d"
-        Title="ReportWindow" Height="450" Width="800">
+        Title="Report" Height="450" Width="800">
     <Grid Margin="10 0 10 20">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <UniformGrid Columns="2" VerticalAlignment="Center">
             <TextBlock Text="Report" VerticalAlignment="Center"/>
-            <Button HorizontalAlignment="Right" Content="Export" Padding="30 3" />
+            <Button HorizontalAlignment="Right" Content="Export" Foreground="White" Background="DarkGreen" Padding="30 3" />
         </UniformGrid>
         <TabControl Grid.Row="1">
             <TabItem  Header="Reminders">

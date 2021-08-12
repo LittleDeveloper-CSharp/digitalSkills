@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:varchar_128_.view"
         mc:Ignorable="d"
-        Title="ChangeCustomerWindow" Height="225" Width="400">
+        Title="Add/Edit Customer" Height="225" Width="400">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="MinWidth" Value="100"/>
@@ -53,8 +53,8 @@
             <TextBox Text="{Binding email}"/>
         </StackPanel>
         <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Orientation="Horizontal">
-            <Button Content="Save" Padding="10 4" Margin="0 0 10 0" Click="btAdd"/>
-            <Button Content="Cancel" Padding="10 4" Click="btClose"/>
+            <Button Foreground="White" Background="DarkGreen" Content="Save" Padding="10 4" Margin="0 0 10 0" Click="btAdd"/>
+            <Button Foreground="White" Background="LightGreen" Content="Cancel" Padding="10 4" Click="btClose"/>
         </StackPanel>
     </Grid>
 </Window>
